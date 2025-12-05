@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Does Home Look Like?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Screen 1: Title -->
+    <div id="screen1" class="screen active">
+        <h1>What does home look like?</h1>
+        <button class="button" onclick="goToScreen('screen2')">I want to find out.</button>
+    </div>
+
+    <!-- Screen 2: Poem -->
+    <div id="screen2" class="screen">
+        <p>I think home</p>
+        <p>Might be all the beds I've slept in.</p>
+        <p>Might be all the people I realize &nbsp;&nbsp;I miss.</p>
+        <p>Might be the food I eat &nbsp;&nbsp;and wonder why</p>
+        <p>it doesn't really taste the same.</p>
+        <br>
+        <p>Might be every color of every memory</p>
+        <p>I forgot &nbsp;&nbsp;to mix and paint with.</p>
+        <p>I see &nbsp;&nbsp;the space I fit into, and I call that</p>
+        <p>home.</p>
+        <br><br>
+        <button class="arrow-button" onclick="goToScreen('screen3')">→</button>
+    </div>
+
+    <!-- Screen 3: Three Buttons -->
+    <div id="screen3" class="screen">
+        <button class="number-button" onclick="goToPath(1)">1</button>
+        <button class="number-button" onclick="goToPath(2)">2</button>
+        <button class="number-button" onclick="goToPath(3)">3</button>
+        <button class="arrow-button final-arrow" id="finalArrow" onclick="goToFinalScreen()" disabled>→</button>
+    </div>
+
+    <!-- Path 1 Screen -->
+    <div id="path1" class="screen path-screen">
+        <button class="back-button" id="backBtn1" onclick="tryGoBack()" disabled>←</button>
+        <div class="content-container">
+            <div class="poem-section">
+                <p>It is November, 2004.</p>
+                <p>I was born in Pennsylvania on a cold</p>
+                <p>and late winter morning.</p>
+                <br>
+                <p>I spend most of my birthdays in Pennsylvania.</p>
+                <br>
+                <p>I wonder,</p>
+                <p>How many people have seen me light my candles</p>
+                <p>and close my eyes?</p>
+                <p>How many do I still talk to?</p>
+                <br>
+                <p>What would I wish for, now?</p>
+                <p>What did I wish for, then?</p>
+            </div>
+            <div class="images-section">
+                <div class="image-card" data-color="#010694" data-date="November 2022" data-desc="First birthday in an unfamiliar place" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/IMG_3981.jpg" alt="Memory 1">
+                </div>
+                <div class="image-card" data-color="#E0A500" data-date="November 2019" data-desc="Mom took this" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/IMG_4110.jpg" alt="Memory 2">
+                </div>
+                <div class="image-card" data-color="#FFD700" data-date="November 2023" data-desc="Second birthday in an unfamiliar place" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/IMG_9310.jpg" alt="Memory 3">
+                </div>
+                <div class="image-card" data-color="#1B46D1" data-date="November 2025" data-desc="Fourth birthday in a familiar place" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/21st_Bday.png" alt="Memory 4">
+                </div>
+                <div class="image-card large" data-color="#4A4A4A" data-date="November 2024" data-desc="Third birthday in a familiar place" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/2024_Bday.JPG" alt="Memory 5">
+                </div>
+            </div>
+        </div>
+        <div class="color-bar" id="colorBar1"></div>
+    </div>
+
+    <!-- Path 2 Screen -->
+    <div id="path2" class="screen path-screen">
+        <button class="back-button" id="backBtn2" onclick="tryGoBack()" disabled>←</button>
+        <div class="content-container">
+            <div class="poem-section">
+                <p>北京 is cold in the winter and hotter than Pennsylvania in the summer.</p>
+                <p>The sun feels different here,</p>
+                <p>my body somehow lighter.</p>
+                <br>
+                <p>My childhood is a blur of walking down warm asphalt streets</p>
+                <p>eating at round tables surrounded by uncles and aunts</p>
+                <p>who know me more than I know them.</p>
+                <br>
+                <p>When my 老爷 was struggling with Alzheimer's</p>
+                <p>he always thought I remained 9 years old.</p>
+                <p>I smile at the thought that he still remembered me enough</p>
+                <p>to be small.</p>
+            </div>
+            <div class="images-section">
+                <div class="image-card" data-color="#FF6B6B" data-date="6月 2019年" data-desc="我和哥" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/6_18_19.jpg" alt="Memory 1">
+                </div>
+                <div class="image-card" data-color="#4ECDC4" data-date="6月 2019年" data-desc="爷爷和哥" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/6_28_yeye.jpg" alt="Memory 2">
+                </div>
+                <div class="image-card" data-color="#C20C39" data-date="7月 2019年" data-desc="老爷" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/7_3_laoye.jpg" alt="Memory 3">
+                </div>
+                <div class="image-card" data-color="#FFE66D" data-date="?" data-desc="我和哥和姥爷" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/IMG_3666.jpg" alt="Memory 4">
+                </div>
+                <div class="image-card large" data-color="#A8E6CF" data-date="7月 2024年" data-desc="爸" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/dad.png" alt="Memory 5">
+                </div>
+            </div>
+        </div>
+        <div class="color-bar" id="colorBar2"></div>
+    </div>
+
+    <!-- Path 3 Screen -->
+    <div id="path3" class="screen path-screen">
+        <button class="back-button" id="backBtn3" onclick="tryGoBack()" disabled>←</button>
+        <div class="content-container">
+            <div class="poem-section">
+                <p>It is December, 2025.</p>
+                <p>I don't need Google Maps to navigate downtown Providence anymore.</p>
+                <p>I don't need light to walk through my dorm room.</p>
+                <br>
+                <p>I was asked if I'd return here after graduation.</p>
+                <p>But knowing the streets is empty without</p>
+                <p>knowing the faces who walk by.</p>
+                <br>
+                <p>I've decided to fold my words carefully</p>
+                <p>as my roommates fold our laundry</p>
+                <p>as my 奶奶 hand washed my socks</p>
+                <p>as my mom readies my bed when I return</p>
+                <p>as I fold my worlds into one idea of home.</p>
+            </div>
+            <div class="images-section">
+                <div class="image-card" data-color="#F1FAEE" data-date="December 2023" data-desc="Family shopping in Pennsylvania" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/fam_shop.jpg" alt="Memory 1">
+                </div>
+                <div class="image-card" data-color="#A8DADC" data-date="November 2025" data-desc="Providence friends/family" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/prov_birth.png" alt="Memory 2">
+                </div>
+                <div class="image-card" data-color="#457B9D" data-date="October 2025" data-desc="Providence autumn is very red" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/prov_leaves.jpg" alt="Memory 3">
+                </div>
+                <div class="image-card" data-color="#E63946" data-date="2018-2022" data-desc="High school... hmm..." onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/scahs_pic.jpg" alt="Memory 4">
+                </div>
+                <div class="image-card large" data-color="#1D3557" data-date="Winter" data-desc="The stars are visible only in Pennsylvania" onmouseenter="showDialog(this, event)" onmousedown="startDrag(event, this)">
+                    <img src="images/starspic.jpg" alt="Memory 5">
+                </div>
+            </div>
+        </div>
+        <div class="color-bar" id="colorBar3"></div>
+    </div>
+
+    <!-- Hover Dialog -->
+    <div id="hoverDialog" class="dialog">
+        <p id="dialogDesc">A moment frozen in time</p>
+        <p id="dialogDate">Date: Unknown.</p>
+        <p id="dialogColor">Color: #009AD7<span class="color-preview" id="colorPreview"></span></p>
+        <button onclick="collectColorFromDialog()">Collect</button>
+    </div>
+
+    <!-- Notification Dialog -->
+    <div id="notificationDialog" class="notification-dialog">
+        <p>Please collect all colors before going back.</p>
+        <button onclick="closeNotification()">OK</button>
+    </div>
+
+    <!-- Final Drawing Screen -->
+    <div id="finalScreen" class="screen">
+        <div class="images-section" id="finalImages"></div>
+        <canvas id="drawingCanvas" class="canvas-layer"></canvas>
+        <canvas id="cracksCanvas" class="cracks-layer"></canvas>
+        <div class="paint-palette" id="paintPalette"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
